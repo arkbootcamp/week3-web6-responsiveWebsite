@@ -1,0 +1,181 @@
+/* grid bukan pengganti dari flexbox */
+
+body,
+html,
+ul {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #ddd;
+}
+
+.container {
+  width: 600px;
+  margin: 50px auto;
+  border: 5px solid #333;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+/* header {
+  background-color: #b063d8;
+  padding: 40px 0;
+}
+
+footer {
+  background-color: #666;
+  padding: 40px 0;
+} */
+
+/* FLOAT ================================================== */
+/* ketika kita menggunakan float banyak content yang kita akalin */
+/* .content::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+.sidebar {
+  float: left;
+  width: 40%;
+}
+.sidebar aside {
+  background-color: #2f93ff;
+  padding: 60px 0;
+}
+.sidebar nav {
+  background-color: #e45765;
+  padding: 100px;
+}
+main {
+  background-color: #e0aa77;
+  padding: 171.5px;
+  width: 60%;
+  box-sizing: border-box;
+  float: right;
+} */
+
+/* FLEX ================================================== */
+/* masih menggunakan div bantuan untuk mengakali */
+/* .content {
+  display: flex;
+}
+.sidebar {
+  flex: 1;
+}
+.sidebar aside {
+  background-color: #2f93ff;
+  padding: 60px 0;
+}
+.sidebar nav {
+  background-color: #e45765;
+  padding: 100px;
+}
+main {
+  flex: 1.5;
+  background-color: #e0aa77;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* GRID ================================================== */
+.container-grid {
+  width: 600px;
+  margin: 50px auto;
+  border: 5px solid #333;
+  padding: 5px;
+  box-sizing: border-box;
+  /* grid container = element pembungkus grid, didefinisan dengan menulis (display: grid) */
+  display: grid;
+  /* bisa menggunakan = <nama-area> | none | '.' <*/
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "nav main"
+    "footer footer";
+  /* grid-template-columns | rows = untuk mendefinisikan kolom / baris dengan menuliskan nilai yang dipisahkan oleh spasi. nilai merepresentasikan ukuran grid track dan spasi mereprentasikan grid line   */
+  /* nilai bisa berupa = px | % | auto | fr (fraction/pecahan) */
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 1fr 1fr 1.3fr;
+  /* grid auto jika ada grid yang tidak masuk maka akan kelempar ke grid auto rows/column */
+  /* grid-auto-rows | columns: 100px; */
+  /* jika melewati batas kolom maka akan pindah ke row */
+  /* grid-auto-flow: row(default) | column | row dense | column dense; */
+}
+
+header {
+  grid-area: header;
+  background-color: #b063d8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #666;
+  padding: 40px 0;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #2f93ff;
+  padding: 60px 0;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #e45765;
+  padding: 100px;
+}
+
+main {
+  grid-area: main;
+  background-color: #e0aa77;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* GRID ================================================== */
+img {
+  display: block;
+  width: 100%;
+}
+
+.galery {
+  width: 80%;
+  margin: auto;
+  border: 10px solid white;
+  list-style: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* untuk menentukan grid-line / jarak antar baris atau kolom */
+  /* gap: 5px;  */
+  grid-gap: 5px;
+  /* properties layouting grid */
+  /* mensejajarkan grid items pada sumbu horizontal */
+  /* justify-items: start | end | center | stretch(default); */
+  /* mensejajarkan grid items pada sumbu vertical */
+  /* align-items: start | end | center | stretch(default); */
+  /* shorthand untuk menulis justify-items dan align-items dalam satu deklarasi bisa menggunakan place-items */
+  /* place-items: <align-items> <justify-items>; */
+  /* untuk mengatur posisi seluruh grid container pada sumbu horizontal */
+  /* jika gridnya memiliki sisa atau containernya lebih besar dari grid */
+  /* justify-content: start | end | center | stretch | space-around | space-between | space-evenly; */
+  /* untuk mengatur posisi seluruh grid container pada sumbu vertical */
+  /* jika gridnya memiliki sisa atau containernya lebih besar dari grid */
+  /* align-content: start | end | center | stretch | space-around | space-between | space-evenly; */
+  /* shorthand untuk menulis justify-content dan align-content dalam satu deklarasi bisa menggunakan place-content */
+  /* place-content: <align-content> <justify-content>; */
+  /* mengatur posisi item pada sebuah cell terhadap sumbu horizontal */
+  /* justify-self: start | end | center | stretch(default); */
+  /* mengatur posisi item pada sebuah cell terhadap sumbu vertical */
+  /* align-self: start | end | center | stretch(default); */
+  /* shorthand untuk menulis justify-self dan align-self dalam satu deklarasi bisa menggunakan place-self */
+  /* place-self: <align-self> <justify-self>; */
+}
