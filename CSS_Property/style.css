@@ -204,3 +204,12 @@ footer .footer-engage {
   height: 70px;
   background-color: mediumaquamarine;
 }
+
+@media (max-width: 768px) {
+  .flex-container header {
+    flex-direction: column;
+  }
+  main .flex-main {
+    flex: 1;
+  }
+}
